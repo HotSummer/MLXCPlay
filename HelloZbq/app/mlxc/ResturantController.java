@@ -1,6 +1,7 @@
 package mlxc;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -54,4 +55,19 @@ public class ResturantController extends Controller {
 ////		RestaurantModel restaurant = Form.form(RestaurantModel.class).bindFromRequest().get();
 ////		return ok("restaurant");
 //	}
+	
+	public static Result allRestaurants() {
+	    List<RestaurantModel> restaurants = RestaurantModel.findAll();
+	    
+	    String restaurantsJsonString = JsonUtils.toJsonString(restaurants);
+	    
+	    return ok(restaurantsJsonString);
+	}
+	
+	public static Result addRestaurant() {
+		RestaurantModel p1 = new RestaurantModel();
+		p1.restaurantId = "10001";
+		p1.save();
+	    return ok("Saved");
+	}
 }
