@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+#Test GET
+GET     /requestGet/:para                           controllers.RequestGet.show(para:String)
+
+#登录
+GET     /login                           controllers.Login.login()
+#登出
+GET     /logout                          controllers.Login.logout()
+#输出名称
+GET     /showName                        controllers.Login.showName()  
+#输出json
+GET     /sayHello                        mlxc.ResturantController.sayHello()
+
+GET     /bcrypt                          controllers.Application.bcrypt()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
