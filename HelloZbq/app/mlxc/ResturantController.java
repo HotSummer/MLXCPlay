@@ -1,7 +1,9 @@
 package mlxc;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -59,7 +61,13 @@ public class ResturantController extends Controller {
 	public static Result allRestaurants() {
 	    List<RestaurantModel> restaurants = RestaurantModel.findAll();
 	    
-	    String restaurantsJsonString = JsonUtils.toJsonString(restaurants);
+	    Map<String, Object> response = new HashMap<String, Object>();
+	    
+	    response.put("code", "200");
+	    response.put("message", "success");
+	    response.put("data", restaurants);
+	    
+	    String restaurantsJsonString = JsonUtils.toJsonString(response);
 	    
 	    return ok(restaurantsJsonString);
 	}
