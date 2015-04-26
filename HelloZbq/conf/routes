@@ -14,12 +14,14 @@ GET     /login                           controllers.Login.login()
 GET     /logout                          controllers.Login.logout()
 #输出名称
 GET     /showName                        controllers.Login.showName()  
-#输出json
-GET     /sayHello                        mlxc.ResturantController.sayHello()
 
 GET     /bcrypt                          controllers.Application.bcrypt()
 
-GET     /getRestaurants                          mlxc.ResturantController.allRestaurants()
+POST     /getRestaurants                          mlxc.ResturantController.allRestaurants()
+
+GET    /allFoods                       mlxc.FoodController.allFoods()
+
+POST    /getFoods                      mlxc.FoodController.getFoods
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
