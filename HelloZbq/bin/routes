@@ -17,11 +17,11 @@ GET     /showName                        controllers.Login.showName()
 
 GET     /bcrypt                          controllers.Application.bcrypt()
 
-POST     /getRestaurants                          mlxc.ResturantController.allRestaurants()
+POST     /getRestaurants                          mlxc.ResturantController.allRestaurants
 
 GET    /allFoods                       mlxc.FoodController.allFoods()
 
-POST    /getFoods                      mlxc.FoodController.getFoods
+GET    /getFoods                      mlxc.FoodController.getFoods
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
