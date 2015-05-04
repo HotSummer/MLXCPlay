@@ -5,8 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import Utils.JsonUtils;
+import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+
+import mlxc.FoodsRequestModel;
 
 public class FoodController extends Controller {
 	public static Result allFoods() {
@@ -24,8 +27,8 @@ public class FoodController extends Controller {
 	}
 	
 	public static Result getFoods() {
-		String restaurantId = request().getQueryString("restaurantId");
-		
+		FoodsRequestModel requestModel = Form.form(FoodsRequestModel.class).bindFromRequest().get();
+		String restaurantId = requestModel.restaurantId;
 	    List<FoodModel> foods = FoodModel.findByRestaurantId(restaurantId);
 	    
 	    Map<String, Object> response = new HashMap<String, Object>();
